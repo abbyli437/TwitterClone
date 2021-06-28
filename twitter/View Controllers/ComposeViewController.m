@@ -7,8 +7,10 @@
 //
 
 #import "ComposeViewController.h"
+#import "APIManager.h"
 
 @interface ComposeViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *tweetText;
 
 @end
 
@@ -24,6 +26,9 @@
 }
 
 - (IBAction)sendTweet:(id)sender {
+    [[APIManager shared] postStatusWithText:self.tweetText.text completion:^(Tweet *, NSError *) {
+        [self dismissViewControllerAnimated:true completion:nil];
+    }];
 }
 
 /*
