@@ -115,6 +115,7 @@
                                                     <state key="normal" title="Retweet" image="retweet-icon">
                                                         <color key="titleColor" systemColor="systemGray2Color"/>
                                                     </state>
+                                                    <state key="selected" image="retweet-icon-green"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hX2-vn-xbq">
                                                     <rect key="frame" x="264" y="122" width="53" height="30"/>
@@ -122,6 +123,7 @@
                                                     <state key="normal" title="Like" image="favor-icon">
                                                         <color key="titleColor" systemColor="systemGray2Color"/>
                                                     </state>
+                                                    <state key="selected" image="favor-icon-red"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMw-Xq-jC7">
                                                     <rect key="frame" x="337" y="122" width="30" height="30"/>
@@ -303,9 +305,11 @@
         <image name="close-icon" width="26" height="24"/>
         <image name="edit-icon" width="30" height="27"/>
         <image name="favor-icon" width="30" height="30"/>
+        <image name="favor-icon-red" width="30" height="30"/>
         <image name="message-icon" width="30" height="30"/>
         <image name="reply-icon" width="30" height="30"/>
         <image name="retweet-icon" width="30" height="30"/>
+        <image name="retweet-icon-green" width="30" height="30"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

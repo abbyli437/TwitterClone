@@ -96,7 +96,13 @@
     cell.profileImage.image = nil;
     [cell.profileImage setImageWithURL:url];
     
-    //TODO: set up button numbers (skip reply text)
+    //sets retweet button title to be the number of retweets
+    NSString *retweetCountString = [NSString stringWithFormat:@"%d", tweet.retweetCount];
+    [cell.retweetButton setTitle:retweetCountString forState:UIControlStateNormal];
+    
+    //sets like button title to be the number of likes
+    NSString *likeCountString = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+    [cell.likeButton setTitle:likeCountString forState:UIControlStateNormal];
     
     return cell;
 }
