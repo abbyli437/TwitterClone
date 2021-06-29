@@ -99,10 +99,18 @@
     //sets retweet button title to be the number of retweets
     NSString *retweetCountString = [NSString stringWithFormat:@"%d", tweet.retweetCount];
     [cell.retweetButton setTitle:retweetCountString forState:UIControlStateNormal];
+    //checks if tweet has been retweeted before
+    if (tweet.retweeted) {
+        [cell.retweetButton setSelected:true];
+    }
     
     //sets like button title to be the number of likes
     NSString *likeCountString = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     [cell.likeButton setTitle:likeCountString forState:UIControlStateNormal];
+    //checks if tweet has been favorited before
+    if (tweet.favorited) {
+        [cell.likeButton setSelected:true];
+    }
     
     return cell;
 }

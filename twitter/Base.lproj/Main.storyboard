@@ -116,6 +116,9 @@
                                                         <color key="titleColor" systemColor="systemGray2Color"/>
                                                     </state>
                                                     <state key="selected" image="retweet-icon-green"/>
+                                                    <connections>
+                                                        <action selector="didTapRetweet:" destination="RUE-8B-jMQ" eventType="touchUpInside" id="lIF-fH-6Cf"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hX2-vn-xbq">
                                                     <rect key="frame" x="264" y="122" width="53" height="30"/>
@@ -124,6 +127,9 @@
                                                         <color key="titleColor" systemColor="systemGray2Color"/>
                                                     </state>
                                                     <state key="selected" image="favor-icon-red"/>
+                                                    <connections>
+                                                        <action selector="didTapFavorite:" destination="RUE-8B-jMQ" eventType="touchUpInside" id="o3H-7k-uRB"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMw-Xq-jC7">
                                                     <rect key="frame" x="337" y="122" width="30" height="30"/>
@@ -187,7 +193,6 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ugE-Ul-H9I"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
                         <constraints>
                             <constraint firstItem="GVg-c8-Llg" firstAttribute="bottom" secondItem="ugE-Ul-H9I" secondAttribute="bottom" id="AQK-ba-E8J"/>
                             <constraint firstItem="GVg-c8-Llg" firstAttribute="trailing" secondItem="ugE-Ul-H9I" secondAttribute="trailing" id="WXl-MX-ard"/>
@@ -318,9 +323,6 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
