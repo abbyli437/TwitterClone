@@ -18,7 +18,7 @@ The following **required** functionality is completed:
 - [x] User can compose a new tweet by tapping on a compose button.
 - [x] Using AutoLayout, the Tweet cell should adjust its layout for iPhone 11, Pro and SE device sizes as well as accommodate device rotation.
 - [x] User should display the relative timestamp for each tweet "8m", "7h"
-- [ ] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet and favorite.
+- [x] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet and favorite.
 
 The following **optional** features are implemented:
 
@@ -62,6 +62,7 @@ GIF created with [Kap](https://getkap.co/).
 Describe any challenges encountered while building the app.
 
 - figuring out how to tell if the destinataion view controller from the home timeline was the compose tweet controller or the details view controller. Took advantage of isKindOfClass method. 
+- like button- I realized that a tweet can only be liked once so I get a 403 forbidden error if I try to like a tweet again. Workaround was to reflect the change in the home timeline and have a bool property detailing if a tweet has already been liked in TweetCell. The first fix gives the user a visual reminder and the 2nd fix prevents the user from sending another Post to like the tweet in the backend. 
 
 ## Credits
 
