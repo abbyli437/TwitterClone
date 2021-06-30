@@ -53,7 +53,9 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='else {
+[cell.retweetButton setSelected:false]
+}https://media.giphy.com/media/qV5fJy1UaBVU96HLHE/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/).
 
@@ -61,7 +63,7 @@ GIF created with [Kap](https://getkap.co/).
 
 Describe any challenges encountered while building the app.
 
-- figuring out how to tell if the destinataion view controller from the home timeline was the compose tweet controller or the details view controller. Took advantage of isKindOfClass method to check which was which.
+- figuring out how to tell if the destinataion view controller from the home timeline was the compose tweet controller or the details view controller. Ended up solving this by adding identifiers to each segue.
 - like button- I realized that a tweet can only be liked once so I get a 403 forbidden error if I try to like a tweet again. Workaround was to reflect the change in the home timeline and have a bool property detailing if a tweet has already been liked in TweetCell. The first fix gives the user a visual reminder and the 2nd fix prevents the user from sending another Post to like the tweet in the backend. 
 - composing a tweet- I noticed that I couldn't see tweets I composed at the beginning of my timeline and realized that I was using the wrong method to insert my new tweet into my array of tweets. My old method inserted the tweet at the end of the array instead of at Index 0, which is at the top. 
 
