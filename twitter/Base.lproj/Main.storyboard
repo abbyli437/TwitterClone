@@ -312,6 +312,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5m-6G-u1X">
+                                        <rect key="frame" x="93" y="50" width="65" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vg-fj-bxV">
                                         <rect key="frame" x="15" y="93" width="344" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -324,22 +330,56 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5m-6G-u1X">
-                                        <rect key="frame" x="93" y="50" width="65" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" weight="ultraLight" pointSize="14"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D1i-XF-kaF">
+                                        <rect key="frame" x="8" y="146.5" width="359" height="2"/>
+                                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="1Ee-jF-XQQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMv-tM-EBO">
+                                        <rect key="frame" x="208" y="156.5" width="83" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Retweets" image="retweet-icon">
+                                            <color key="titleColor" systemColor="systemGray2Color"/>
+                                        </state>
+                                        <state key="selected" image="retweet-icon-green"/>
+                                        <connections>
+                                            <action selector="didTapRetweet:" destination="GnU-n4-5a2" eventType="touchUpInside" id="aHx-jz-Rt0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LTv-Y2-gU5">
+                                        <rect key="frame" x="299" y="156.5" width="60" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Likes" image="favor-icon">
+                                            <color key="titleColor" systemColor="systemGray2Color"/>
+                                        </state>
+                                        <state key="selected" image="favor-icon-red">
+                                            <color key="titleColor" systemColor="systemGray2Color"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapFavorite:" destination="GnU-n4-5a2" eventType="touchUpInside" id="BsH-7q-eS9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="J5m-6G-u1X" firstAttribute="leading" secondItem="QfC-5b-nwh" secondAttribute="leading" id="1RW-de-94o"/>
                                     <constraint firstItem="ThY-88-yLz" firstAttribute="trailing" secondItem="2vg-fj-bxV" secondAttribute="trailing" constant="16" id="1Vo-54-g2d"/>
+                                    <constraint firstItem="LTv-Y2-gU5" firstAttribute="top" secondItem="OMv-tM-EBO" secondAttribute="top" id="1ru-YQ-TFX"/>
                                     <constraint firstItem="QfC-5b-nwh" firstAttribute="leading" secondItem="hYU-Cq-MRa" secondAttribute="trailing" constant="8" id="5M3-rU-xKY"/>
                                     <constraint firstItem="ThY-88-yLz" firstAttribute="trailing" secondItem="QfC-5b-nwh" secondAttribute="trailing" constant="8" id="94c-CF-t1y"/>
                                     <constraint firstItem="2vg-fj-bxV" firstAttribute="top" secondItem="hYU-Cq-MRa" secondAttribute="bottom" constant="8" id="If9-wA-tuT"/>
+                                    <constraint firstItem="D1i-XF-kaF" firstAttribute="leading" secondItem="ThY-88-yLz" secondAttribute="leading" constant="8" id="LCt-F7-CNM"/>
+                                    <constraint firstItem="LTv-Y2-gU5" firstAttribute="leading" secondItem="OMv-tM-EBO" secondAttribute="trailing" constant="8" id="VOE-Px-0zY"/>
                                     <constraint firstItem="hYU-Cq-MRa" firstAttribute="leading" secondItem="ThY-88-yLz" secondAttribute="leading" constant="15" id="aug-RZ-Rkm"/>
+                                    <constraint firstItem="ThY-88-yLz" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="OMv-tM-EBO" secondAttribute="bottom" constant="8" id="eUO-aO-pIE"/>
+                                    <constraint firstItem="ThY-88-yLz" firstAttribute="trailing" secondItem="LTv-Y2-gU5" secondAttribute="trailing" constant="16" id="eUR-Oc-sz7"/>
+                                    <constraint firstItem="ThY-88-yLz" firstAttribute="trailing" secondItem="D1i-XF-kaF" secondAttribute="trailing" constant="8" id="foM-AJ-2kw"/>
                                     <constraint firstItem="hYU-Cq-MRa" firstAttribute="top" secondItem="ThY-88-yLz" secondAttribute="top" constant="15" id="gKz-ad-pMr"/>
+                                    <constraint firstItem="D1i-XF-kaF" firstAttribute="top" secondItem="kPN-sR-pcJ" secondAttribute="bottom" constant="8" id="ghC-4C-pOG"/>
+                                    <constraint firstItem="ThY-88-yLz" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="LTv-Y2-gU5" secondAttribute="bottom" constant="8" id="gx0-Rf-s8b"/>
                                     <constraint firstItem="J5m-6G-u1X" firstAttribute="top" secondItem="QfC-5b-nwh" secondAttribute="bottom" constant="8" id="mgc-og-Gan"/>
+                                    <constraint firstItem="LTv-Y2-gU5" firstAttribute="top" secondItem="D1i-XF-kaF" secondAttribute="bottom" constant="8" id="qBW-c6-7oo"/>
                                     <constraint firstItem="kPN-sR-pcJ" firstAttribute="top" secondItem="2vg-fj-bxV" secondAttribute="bottom" constant="8" id="srJ-tk-Lwj"/>
                                     <constraint firstItem="2vg-fj-bxV" firstAttribute="leading" secondItem="hYU-Cq-MRa" secondAttribute="leading" id="vnk-hp-lHs"/>
                                     <constraint firstItem="kPN-sR-pcJ" firstAttribute="leading" secondItem="hYU-Cq-MRa" secondAttribute="leading" id="xu6-Zm-7dE"/>
@@ -363,7 +403,9 @@
                         <outlet property="authorLabel" destination="QfC-5b-nwh" id="HNs-DU-911"/>
                         <outlet property="contentLabel" destination="2vg-fj-bxV" id="67h-iA-tpw"/>
                         <outlet property="dateLabel" destination="kPN-sR-pcJ" id="LzS-VP-3gL"/>
+                        <outlet property="likeButton" destination="LTv-Y2-gU5" id="fFN-TC-87g"/>
                         <outlet property="profileImage" destination="hYU-Cq-MRa" id="Me6-Ua-HLG"/>
+                        <outlet property="retweetButton" destination="OMv-tM-EBO" id="O7u-Vi-G5B"/>
                         <outlet property="usernameLabel" destination="J5m-6G-u1X" id="oUz-Rw-JT7"/>
                     </connections>
                 </viewController>
@@ -388,6 +430,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
