@@ -46,8 +46,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I want to figure out how to display a user's retweets on their timeline when they retweet something.
+2. I want to see if there are any ways to refactor my code to make it cleaner like we did for Flix.
 
 ## Video Walkthrough
 
@@ -61,14 +61,16 @@ GIF created with [Kap](https://getkap.co/).
 
 Describe any challenges encountered while building the app.
 
-- figuring out how to tell if the destinataion view controller from the home timeline was the compose tweet controller or the details view controller. Took advantage of isKindOfClass method. 
+- figuring out how to tell if the destinataion view controller from the home timeline was the compose tweet controller or the details view controller. Took advantage of isKindOfClass method to check which was which.
 - like button- I realized that a tweet can only be liked once so I get a 403 forbidden error if I try to like a tweet again. Workaround was to reflect the change in the home timeline and have a bool property detailing if a tweet has already been liked in TweetCell. The first fix gives the user a visual reminder and the 2nd fix prevents the user from sending another Post to like the tweet in the backend. 
+- composing a tweet- I noticed that I couldn't see tweets I composed at the beginning of my timeline and realized that I was using the wrong method to insert my new tweet into my array of tweets. My old method inserted the tweet at the end of the array instead of at Index 0, which is at the top. 
 
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [DateTools](https://github.com/MatthewYork/DateTools) - date tool library
 
 ## License
 

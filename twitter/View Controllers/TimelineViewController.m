@@ -82,7 +82,7 @@
     //set up header area
     cell.authorLabel.text = tweet.user.name;
     cell.usernameLabel.text = tweet.user.screenName;
-    cell.dateLabel.text = tweet.createdAtString;
+    cell.dateLabel.text = tweet.createdAtStringShort;
     
     cell.contentLabel.text = tweet.text;
     
@@ -124,7 +124,7 @@
     UINavigationController *navigationController = [segue destinationViewController];
     
     //for compose tweet
-    if ([navigationController isKindOfClass:[ComposeViewController class]]) {
+    if ([navigationController.topViewController isKindOfClass:[ComposeViewController class]]) {
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
     }
