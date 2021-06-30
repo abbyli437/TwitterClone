@@ -97,6 +97,9 @@
     if (tweet.retweeted) {
         [cell.retweetButton setSelected:true];
     }
+    else {
+        [cell.retweetButton setSelected:false];
+    }
     
     //sets like button title to be the number of likes
     NSString *likeCountString = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
@@ -104,6 +107,9 @@
     //checks if tweet has been favorited before
     if (tweet.favorited) {
         [cell.likeButton setSelected:true];
+    }
+    else {
+        [cell.likeButton setSelected:false];
     }
     
     return cell;

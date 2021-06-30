@@ -44,7 +44,6 @@
     //could do unfavorite function in "else" later
 }
 
-//what's supposed to happen when you tap retweet? I see the green icon but I don't think any action is happening?
 - (IBAction)didTapRetweet:(id)sender {
     if (self.tweet.retweeted == NO) {
         self.tweet.retweeted = YES;
