@@ -124,11 +124,12 @@
     UINavigationController *navigationController = [segue destinationViewController];
     
     //for compose tweet
-    if ([navigationController.topViewController isKindOfClass:[ComposeViewController class]]) {
+    //[[segue identifier] isEqualToString:@"detailViewSegue"]
+    if ([[segue identifier] isEqualToString:@"composeViewSegue"]) {
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
     }
-    else if ([navigationController isKindOfClass:[DetailsViewController class]]) {
+    else if ([[segue identifier] isEqualToString:@"detailViewSegue"]) {
         //for details
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
