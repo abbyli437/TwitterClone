@@ -15,8 +15,7 @@
     if (self) {
         self.name = dictionary[@"name"];
         self.screenName = [@"@" stringByAppendingString:dictionary[@"screen_name"]];
-        self.profilePicture = dictionary[@"profile_image_url_https"];
-        //...
+        self.pfpURL = [NSURL URLWithString:dictionary[@"profile_image_url_https"]];
     // Initialize any other properties
     }
     return self;

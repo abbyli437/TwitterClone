@@ -31,11 +31,8 @@
     self.contentLabel.text = self.tweet.text;
     
     //set up pfp
-    NSString *URLString = self.tweet.user.profilePicture;
-    NSURL *url = [NSURL URLWithString:URLString];
-    NSData *urlData = [NSData dataWithContentsOfURL:url];
     self.profileImage.image = nil;
-    [self.profileImage setImageWithURL:url];
+    [self.profileImage setImageWithURL:self.tweet.user.pfpURL];
 }
 
 /*

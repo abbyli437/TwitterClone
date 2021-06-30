@@ -87,11 +87,8 @@
     cell.contentLabel.text = tweet.text;
     
     //set up pfp
-    NSString *URLString = tweet.user.profilePicture;
-    NSURL *url = [NSURL URLWithString:URLString];
-    NSData *urlData = [NSData dataWithContentsOfURL:url];
     cell.profileImage.image = nil;
-    [cell.profileImage setImageWithURL:url];
+    [cell.profileImage setImageWithURL:tweet.user.pfpURL];
     
     //sets retweet button title to be the number of retweets
     NSString *retweetCountString = [NSString stringWithFormat:@"%d", tweet.retweetCount];
