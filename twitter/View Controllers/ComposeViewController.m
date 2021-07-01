@@ -19,10 +19,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tweetText.delegate = self;
 }
 
 - (IBAction)closeWindow:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    // Set the max character limit
+    int characterLimit = 140;
+
+    // Construct what the new text would be if we allowed the user's latest edit
+    NSString *newText = [self.tweetText.text stringByReplacingCharactersInRange:range withString:text];
+
+    // Should the new text should be allowed? True/False
+    return newText.length < characterLimit;
 }
 
 - (IBAction)sendTweet:(id)sender {

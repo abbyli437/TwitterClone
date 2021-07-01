@@ -239,9 +239,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4oi-Kp-RQv">
-                                <rect key="frame" x="0.0" y="44" width="375" height="202"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4oi-Kp-RQv">
+                                <rect key="frame" x="8" y="69" width="351" height="33"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -250,6 +249,11 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UDU-EE-esM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4oi-Kp-RQv" firstAttribute="leading" secondItem="UDU-EE-esM" secondAttribute="leading" constant="8" id="0mQ-82-X61"/>
+                            <constraint firstItem="4oi-Kp-RQv" firstAttribute="top" secondItem="UDU-EE-esM" secondAttribute="top" constant="13" id="dVL-RX-GcU"/>
+                            <constraint firstItem="UDU-EE-esM" firstAttribute="trailing" secondItem="4oi-Kp-RQv" secondAttribute="trailing" constant="16" id="oZi-3H-zRR"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BKX-QY-2BV">
                         <barButtonItem key="leftBarButtonItem" image="close-icon" id="H5Y-V4-hPq">
