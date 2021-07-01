@@ -53,9 +53,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='else {
-[cell.retweetButton setSelected:false]
-}https://media.giphy.com/media/qV5fJy1UaBVU96HLHE/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://media.giphy.com/media/qV5fJy1UaBVU96HLHE/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/).
 
