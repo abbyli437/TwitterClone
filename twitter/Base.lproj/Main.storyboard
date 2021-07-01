@@ -254,11 +254,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="280 characters left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xgp-7e-fot">
+                                <rect key="frame" x="214" y="386" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UDU-EE-esM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4oi-Kp-RQv" firstAttribute="leading" secondItem="UDU-EE-esM" secondAttribute="leading" constant="8" id="0mQ-82-X61"/>
+                            <constraint firstItem="Xgp-7e-fot" firstAttribute="top" secondItem="4oi-Kp-RQv" secondAttribute="bottom" constant="8" id="0xx-WN-Dpa"/>
+                            <constraint firstItem="UDU-EE-esM" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Xgp-7e-fot" secondAttribute="bottom" constant="8" id="5sG-K6-24f"/>
+                            <constraint firstAttribute="trailing" secondItem="Xgp-7e-fot" secondAttribute="trailing" constant="8" id="ML5-sw-oW9"/>
                             <constraint firstItem="4oi-Kp-RQv" firstAttribute="top" secondItem="UDU-EE-esM" secondAttribute="top" constant="13" id="dVL-RX-GcU"/>
                             <constraint firstItem="UDU-EE-esM" firstAttribute="trailing" secondItem="4oi-Kp-RQv" secondAttribute="trailing" constant="16" id="oZi-3H-zRR"/>
                         </constraints>
@@ -276,6 +285,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charsLeftLabel" destination="Xgp-7e-fot" id="2Ua-Cc-6et"/>
                         <outlet property="tweetText" destination="4oi-Kp-RQv" id="laf-6o-SVt"/>
                     </connections>
                 </viewController>

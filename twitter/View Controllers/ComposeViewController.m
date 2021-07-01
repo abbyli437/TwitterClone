@@ -11,6 +11,7 @@
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *tweetText;
+@property (weak, nonatomic) IBOutlet UILabel *charsLeftLabel;
 
 @end
 
@@ -34,6 +35,10 @@
     NSString *newText = [self.tweetText.text stringByReplacingCharactersInRange:range withString:text];
 
     // Should the new text should be allowed? True/False
+    if (newText.length < characterLimit) {
+        int charsLeft = characterLimit - (int) newText.length;
+        self.charsLeftLabel.text = [[NSString stringWithFormat:@"%d", charsLeft] stringByAppendingString:@" characters left"];
+    }
     return newText.length < characterLimit;
 }
 
