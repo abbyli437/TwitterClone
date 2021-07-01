@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *authorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
-@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UITextView *contentText;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
@@ -31,7 +31,7 @@
     self.usernameLabel.text = self.tweet.user.screenName;
     self.dateLabel.text = self.tweet.createdAtString;
     
-    self.contentLabel.text = self.tweet.text;
+    self.contentText.text = self.tweet.text;
     
     //set up pfp
     self.profileImage.image = nil;
@@ -43,12 +43,18 @@
     if (self.tweet.retweeted) {
         [self.retweetButton setSelected:true];
     }
+    else {
+        [self.retweetButton setSelected:false];
+    }
     NSString *retweetCountString = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     [self.retweetButton setTitle:retweetCountString forState:UIControlStateNormal];
     
     //set up like button
     if (self.tweet.favorited) {
         [self.likeButton setSelected:true];
+    }
+    else {
+        [self.likeButton setSelected:false];
     }
     NSString *likeCountString = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     [self.likeButton setTitle:likeCountString forState:UIControlStateNormal];
@@ -72,6 +78,23 @@
              }
          }];
     }
+    else {
+        self.tweet.retweeted = NO;
+        self.tweet.retweetCount -= 1;
+        
+        //updates cell UI
+        [self refreshRetweetData];
+        
+        //sends POST request
+        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error unretweeting tweet: %@", error.localizedDescription);
+             }
+             else{
+                 NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
+             }
+         }];
+    }
 }
 - (IBAction)didTapFavorite:(id)sender {
     if (self.tweet.favorited == NO) {
@@ -92,18 +115,44 @@
              }
          }];
     }
+    else {
+        self.tweet.favorited = NO;
+        self.tweet.favoriteCount -= 1;
+        
+        [self refreshLikeData];
+        
+        //sends POST request
+        [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error unfavoriting tweet: %@", error.localizedDescription);
+             }
+             else{
+                 NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
+             }
+         }];
+    }
 }
 
 - (void)refreshLikeData {
     NSString *likeCountString = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     [self.likeButton setTitle:likeCountString forState:UIControlStateNormal];
-    [self.likeButton setSelected:true];
+    if (self.tweet.favorited) {
+        [self.likeButton setSelected:true];
+    }
+    else {
+        [self.likeButton setSelected:false];
+    }
 }
 
 - (void)refreshRetweetData {
     NSString *retweetCountString = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     [self.retweetButton setTitle:retweetCountString forState:UIControlStateNormal];
-    [self.retweetButton setSelected:true];
+    if (self.tweet.retweeted) {
+        [self.retweetButton setSelected:true];
+    }
+    else {
+        [self.retweetButton setSelected:false];
+    }
 }
 
 /*

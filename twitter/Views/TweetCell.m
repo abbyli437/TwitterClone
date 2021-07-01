@@ -30,7 +30,10 @@
     self.usernameLabel.text = tweet.user.screenName;
     self.dateLabel.text = tweet.createdAtStringShort;
     
-    self.contentLabel.text = tweet.text;
+    self.contentText.scrollEnabled = false;
+    if (tweet.text != nil) {
+        self.contentText.text = tweet.text;
+    }
     
     //set up pfp
     self.profileImage.image = nil;
@@ -84,7 +87,6 @@
     else {
         self.tweet.favorited = NO;
         self.tweet.favoriteCount -= 1;
-        //[self.likeButton setSelected:false];
         
         [self refreshLikeData];
         
@@ -98,7 +100,6 @@
              }
          }];
     }
-    //could do unfavorite function in "else" later
 }
 
 - (IBAction)didTapRetweet:(id)sender {

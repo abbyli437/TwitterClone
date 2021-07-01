@@ -78,7 +78,6 @@
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
     cell.tweet = tweet;
-    
     return cell;
 }
 
