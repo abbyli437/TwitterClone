@@ -8,6 +8,7 @@
 
 #import "TweetCell.h"
 #import "APIManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation TweetCell
 
@@ -20,6 +21,45 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)setTweet:(Tweet *)tweet {
+    _tweet = tweet;
+    //set up header area
+    self.authorLabel.text = tweet.user.name;
+    self.usernameLabel.text = tweet.user.screenName;
+    self.dateLabel.text = tweet.createdAtStringShort;
+    
+    self.contentLabel.text = tweet.text;
+    
+    //set up pfp
+    self.profileImage.image = nil;
+    if (tweet.user.pfpURL != nil) {
+        [self.profileImage setImageWithURL:tweet.user.pfpURL];
+    }
+    
+    //sets retweet button title to be the number of retweets
+    NSString *retweetCountString = [NSString stringWithFormat:@"%d", tweet.retweetCount];
+    [self.retweetButton setTitle:retweetCountString forState:UIControlStateNormal];
+    //checks if tweet has been retweeted before
+    if (tweet.retweeted) {
+        [self.retweetButton setSelected:true];
+    }
+    else {
+        [self.retweetButton setSelected:false];
+    }
+    
+    //sets like button title to be the number of likes
+    NSString *likeCountString = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+    [self.likeButton setTitle:likeCountString forState:UIControlStateNormal];
+    //checks if tweet has been favorited before
+    if (tweet.favorited) {
+        [self.likeButton setSelected:true];
+    }
+    else {
+        [self.likeButton setSelected:false];
+    }
+
 }
 
 - (IBAction)didTapFavorite:(id)sender {

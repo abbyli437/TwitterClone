@@ -47,7 +47,7 @@ The following **additional** features are implemented:
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. I want to figure out how to display a user's retweets on their timeline when they retweet something.
-2. I want to see if there are any ways to refactor my code to make it cleaner like we did for Flix.
+2. I refactored my code like we did for Flix and I'm curious how custom property setters work. I tried using the same code in my details view controller as the timeline view controller but it didn't work in the details view.
 
 ## Video Walkthrough
 

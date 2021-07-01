@@ -35,7 +35,9 @@
     
     //set up pfp
     self.profileImage.image = nil;
-    [self.profileImage setImageWithURL:self.tweet.user.pfpURL];
+    if (self.tweet.user.pfpURL != nil) {
+        [self.profileImage setImageWithURL:self.tweet.user.pfpURL];
+    }
     
     //set up retweet button
     if (self.tweet.retweeted) {

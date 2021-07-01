@@ -11,7 +11,6 @@
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "TweetCell.h"
-#import "UIImageView+AFNetworking.h"
 #import "ComposeViewController.h"
 #import "DetailsViewController.h"
 
@@ -79,38 +78,6 @@
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
     cell.tweet = tweet;
-    //set up header area
-    cell.authorLabel.text = tweet.user.name;
-    cell.usernameLabel.text = tweet.user.screenName;
-    cell.dateLabel.text = tweet.createdAtStringShort;
-    
-    cell.contentLabel.text = tweet.text;
-    
-    //set up pfp
-    cell.profileImage.image = nil;
-    [cell.profileImage setImageWithURL:tweet.user.pfpURL];
-    
-    //sets retweet button title to be the number of retweets
-    NSString *retweetCountString = [NSString stringWithFormat:@"%d", tweet.retweetCount];
-    [cell.retweetButton setTitle:retweetCountString forState:UIControlStateNormal];
-    //checks if tweet has been retweeted before
-    if (tweet.retweeted) {
-        [cell.retweetButton setSelected:true];
-    }
-    else {
-        [cell.retweetButton setSelected:false];
-    }
-    
-    //sets like button title to be the number of likes
-    NSString *likeCountString = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
-    [cell.likeButton setTitle:likeCountString forState:UIControlStateNormal];
-    //checks if tweet has been favorited before
-    if (tweet.favorited) {
-        [cell.likeButton setSelected:true];
-    }
-    else {
-        [cell.likeButton setSelected:false];
-    }
     
     return cell;
 }
@@ -130,13 +97,12 @@
     UINavigationController *navigationController = [segue destinationViewController];
     
     //for compose tweet
-    //[[segue identifier] isEqualToString:@"detailViewSegue"]
     if ([[segue identifier] isEqualToString:@"composeViewSegue"]) {
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
     }
+    //for details
     else if ([[segue identifier] isEqualToString:@"detailViewSegue"]) {
-        //for details
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         Tweet *tweet = self.arrayOfTweets[indexPath.row];
