@@ -42,7 +42,7 @@
     NSString *retweetCountString = [NSString stringWithFormat:@"%d", tweet.retweetCount];
     [self.retweetButton setTitle:retweetCountString forState:UIControlStateNormal];
     //checks if tweet has been retweeted before
-    if (tweet.retweeted) {
+    if (self.tweet.retweeted) {
         [self.retweetButton setSelected:true];
     }
     else {
@@ -53,7 +53,7 @@
     NSString *likeCountString = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     [self.likeButton setTitle:likeCountString forState:UIControlStateNormal];
     //checks if tweet has been favorited before
-    if (tweet.favorited) {
+    if (self.tweet.favorited) {
         [self.likeButton setSelected:true];
     }
     else {
@@ -81,6 +81,23 @@
              }
          }];
     }
+    else {
+        self.tweet.favorited = NO;
+        self.tweet.favoriteCount -= 1;
+        //[self.likeButton setSelected:false];
+        
+        [self refreshLikeData];
+        
+        //sends POST request
+        [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error unfavoriting tweet: %@", error.localizedDescription);
+             }
+             else{
+                 NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
+             }
+         }];
+    }
     //could do unfavorite function in "else" later
 }
 
@@ -102,18 +119,48 @@
              }
          }];
     }
+    else {
+        self.tweet.retweeted = NO;
+        self.tweet.retweetCount -= 1;
+        
+        //updates cell UI
+        [self refreshRetweetData];
+        
+        //sends POST request
+        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error unretweeting tweet: %@", error.localizedDescription);
+             }
+             else{
+                 NSLog(@"Successfully unretweeted the following Tweet: %@", tweet.text);
+             }
+         }];
+    }
 }
 
 - (void)refreshLikeData {
     NSString *likeCountString = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     [self.likeButton setTitle:likeCountString forState:UIControlStateNormal];
-    [self.likeButton setSelected:true];
+    
+    if (self.tweet.favorited) {
+        [self.likeButton setSelected:true];
+    }
+    else {
+        [self.likeButton setSelected:false];
+    }
 }
 
 - (void)refreshRetweetData {
     NSString *retweetCountString = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
     [self.retweetButton setTitle:retweetCountString forState:UIControlStateNormal];
-    [self.retweetButton setSelected:true];
+    
+    if (self.tweet.retweeted) {
+        [self.retweetButton setSelected:true];
+    }
+    else {
+        [self.retweetButton setSelected:false];
+    }
+    
 }
 
 @end
