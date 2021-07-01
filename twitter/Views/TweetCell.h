@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
 @property(nonatomic, weak) Tweet *tweet;
+@property (weak, nonatomic) IBOutlet UIImageView *mediaImage;
 
 @end
 

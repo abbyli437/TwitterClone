@@ -40,6 +40,7 @@
     if (tweet.user.pfpURL != nil) {
         [self.profileImage setImageWithURL:tweet.user.pfpURL];
     }
+    self.profileImage.layer.cornerRadius  = self.profileImage.frame.size.width/2;
     
     //sets retweet button title to be the number of retweets
     NSString *retweetCountString = [NSString stringWithFormat:@"%d", tweet.retweetCount];
@@ -63,6 +64,11 @@
         [self.likeButton setSelected:false];
     }
 
+    //deals with media embed
+    self.mediaImage.image = nil;
+    if (self.tweet.mediaURL != nil) {
+        [self.mediaImage setImageWithURL:self.tweet.mediaURL];
+    }
 }
 
 - (IBAction)didTapFavorite:(id)sender {

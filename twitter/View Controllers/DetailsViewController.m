@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (weak, nonatomic) IBOutlet UIImageView *mediaImage;
 
 @end
 
@@ -38,6 +39,7 @@
     if (self.tweet.user.pfpURL != nil) {
         [self.profileImage setImageWithURL:self.tweet.user.pfpURL];
     }
+    self.profileImage.layer.cornerRadius  = self.profileImage.frame.size.width/2;
     
     //set up retweet button
     if (self.tweet.retweeted) {
@@ -58,6 +60,12 @@
     }
     NSString *likeCountString = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     [self.likeButton setTitle:likeCountString forState:UIControlStateNormal];
+    
+    //deals with media embed
+    self.mediaImage.image = nil;
+    if (self.tweet.mediaURL != nil) {
+        [self.mediaImage setImageWithURL:self.tweet.mediaURL];
+    }
 }
 
 - (IBAction)didTapRetweet:(id)sender {

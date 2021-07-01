@@ -50,6 +50,12 @@
         
         self.createdAtString = [formatter stringFromDate:date];
         self.createdAtStringShort = agoDate;
+        
+        //embeds media here
+        NSDictionary *entities = dictionary[@"entities"];
+        NSDictionary *media = [entities[@"media"] objectAtIndex:0];
+        NSString *mediaURL = media[@"media_url_https"];
+        self.mediaURL = [NSURL URLWithString:media[@"media_url_https"]];
     }
     return self;
 }
