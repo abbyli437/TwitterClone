@@ -28,7 +28,7 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     // Set the max character limit
-    int characterLimit = 140;
+    int characterLimit = 280;
 
     // Construct what the new text would be if we allowed the user's latest edit
     NSString *newText = [self.tweetText.text stringByReplacingCharactersInRange:range withString:text];
