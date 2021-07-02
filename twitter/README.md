@@ -56,6 +56,7 @@ Here's a walkthrough of implemented user stories:
 <img src='https://media.giphy.com/media/opwvtlS35OueDhJ4sp/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 Here is a 2nd gif to show autolayout:
+
 <img src='https://media.giphy.com/media/ounKYgrGvgMvDdeoDj/giphy.gif' title='Video Walkthrough (Autolayout)' width='' alt='Video Walkthrough' />
 
 GIF created with [Kap](https://getkap.co/).
